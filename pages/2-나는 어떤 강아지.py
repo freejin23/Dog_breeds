@@ -300,7 +300,7 @@ if filename is not None:
         html = bs(response.text)
         images = html.find_all('img')
         for image in images:
-            if (checkUrl_1.lower() or checkUrl_2.lower())  in image['src'].lower():
+            if (checkUrl_1.lower() in image['src'].lower()) or (checkUrl_2.lower()  in image['src'].lower()):
                 url = image['src']
                 filename = label_maps_rev[idx].split("-")[-1]
                 os.system("curl -s {} -o {}".format(url, filename))
