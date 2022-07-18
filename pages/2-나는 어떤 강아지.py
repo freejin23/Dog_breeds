@@ -269,7 +269,7 @@ def upload_and_predict2(filename):
                 i += 1
                 break
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.beta_columns([1,6,1])
 
     with col1:
         st.image(col[0])
