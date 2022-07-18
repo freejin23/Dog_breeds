@@ -301,7 +301,7 @@ if filename is not None:
                 os.system("curl -s {} -o {}".format(url, filename))
                 img2 = Image.open(filename)
                 img2 = img2.convert('RGB')
-                img2 = img2.resize((112, 112))
+                img2 = img2.resize((224, 224))
                 # show image
                 plt.figure(figsize=(4, 4))
                 st.image(img2)
