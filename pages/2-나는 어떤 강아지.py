@@ -312,12 +312,12 @@ if filename is not None:
                 url = image['src']
                 filename = label_maps_rev[idx].split("-")[-1]
                 os.system("curl -s {} -o {}".format(url, filename))
-                img2 = Image.open(filename)
-                img2 = img2.convert('RGB')
-                img2 = img2.resize((224, 224))
+                col[i] = Image.open(filename)
+                col[i] = col[i].convert('RGB')
+                col[i] = col[i].resize((224, 224))
                 # show image
                 plt.figure(figsize=(4, 4))
-                col[i] = img2
+                # col[i] = img2
                 plt.axis('off')
                 i += 1
                 break
