@@ -2,19 +2,26 @@ from importlib.resources import path
 import streamlit as st
 from text.contents import *
 
+st.set_page_config(
+    page_title="Likelion AI School Dog Team Miniproject",
+    page_icon="🐶",
+    layout="wide",
+)
+st.sidebar.markdown("# Feature engineering🐶")
+
 # images load
-st.markdown('## images load')
+st.markdown('### images load')
 st.code(breed_list, language='python')
 
 # how many breeds and pictures we have
-st.markdown('## how many breeds')
+st.markdown('### how many breeds')
 st.code(breeds, language='python')
 
-st.markdown('## how many pictures')
+st.markdown('### how many pictures')
 st.code(images, language='python')
 
 # label strings and numbers mapping
-st.markdown('## label strings and numbers mapping')
+st.markdown('### label strings and numbers mapping')
 st.code(labeling, language='python')
 
 # show some pic

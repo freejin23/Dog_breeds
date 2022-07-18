@@ -33,6 +33,13 @@ import cv2
 from bs4 import BeautifulSoup as bs
 import requests
 
+st.set_page_config(
+    page_title="Likelion AI School Dog Team Miniproject",
+    page_icon="🐶",
+    layout="wide",
+)
+st.sidebar.markdown("# GUESS WHAT DOG YOU ARE🐶")
+
 st.title("GUESS WHAT DOG YOU ARE")
 
 st.write("""
