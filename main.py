@@ -17,5 +17,5 @@ st.markdown("![Alt Text](https://media.giphy.com/media/kxlDaFDVzTLb2/giphy.gif)"
 
 st.markdown('---')
 
-st.markdown('#### 팀장: 주소리')
-st.markdown('#### 팀원: 이주승, 김재석')
+st.markdown('팀장: 주소리')
+st.markdown('팀원: 이주승, 김재석')
