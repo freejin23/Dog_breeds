@@ -264,19 +264,11 @@ def upload_and_predict2(filename):
                 img2 = img2.resize((224, 224))
                 # show image
                 plt.figure(figsize=(4, 4))
-                col[i] = img2
+                plt.imshow(img2)
                 plt.axis('off')
                 i += 1
                 break
 
-    col1, col2, col3 = st.beta_columns([1,6,1])
-
-    with col1:
-        st.image(col[0])
-    with col2:
-        st.image(col[1])
-    with col3:
-        st.image(col[2])
 
 if filename is not None:
     img = Image.open(filename)
@@ -312,21 +304,13 @@ if filename is not None:
                 url = image['src']
                 filename = label_maps_rev[idx].split("-")[-1]
                 os.system("curl -s {} -o {}".format(url, filename))
-                col[i] = Image.open(filename)
-                col[i] = col[i].convert('RGB')
-                col[i] = col[i].resize((224, 224))
+                img2 = Image.open(filename)
+                img2 = img2.convert('RGB')
+                img2 = img2.resize((224, 224))
                 # show image
                 plt.figure(figsize=(4, 4))
-                # col[i] = img2
+                st.imshow(img2) 
                 plt.axis('off')
                 i += 1
                 break
         
-    col1, col2, col3 = st.beta_columns([1,6,1])
-
-    with col1:
-        st.image(col[0])
-    with col2:
-        st.image(col[1])
-    with col3:
-        st.image(col[2])
