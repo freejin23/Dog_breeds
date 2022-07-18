@@ -231,7 +231,7 @@ def upload_and_predict2(filename):
     print(img.size)
     # show image
     plt.figure(figsize=(4, 4))
-    plt.imshow(img)
+    st.imshow(img)
     plt.axis('off')
     # predict
 #     img = imread(filename)
