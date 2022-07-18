@@ -7,7 +7,7 @@ warnings.filterwarnings("ignore")
 
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-##
+
 import xml.etree.ElementTree as ET
 
 import numpy as np
@@ -32,13 +32,6 @@ import cv2
 
 from bs4 import BeautifulSoup as bs
 import requests
-
-st.set_page_config(
-    page_title="Likelion AI School Dog Team Miniproject",
-    page_icon="🐶",
-    layout="wide",
-)
-st.sidebar.markdown("# GUESS WHAT DOG YOU ARE🐶")
 
 st.title("GUESS WHAT DOG YOU ARE")
 
@@ -276,17 +269,16 @@ if filename is not None:
     # text = []
     st.image(img, use_column_width=True)
     
-    for idx in probs.argsort()[0][::-1][:8]:
+    for idx in probs.argsort()[0][::-1][:3]:
         st.text("{:.2f}%".format(probs[0][idx]*100) +" "+ label_maps_rev[idx].split("-")[-1])
 
         baseUrl = 'https://www.akc.org/?s='
-        plusUrl = label_maps_rev[idx].split("-")[-1].replace('_', ' ')
+        plusUrl = label_maps_rev[idx].split("-")[-1]
         print(label_maps_rev[idx].split("-")[-1])
         
         url = baseUrl + plusUrl
         response = requests.get(url)
         html = bs(response.text)
-        html
         images = html.find_all('img')
         for image in images:
             if plusUrl.lower() in image['src'].lower():
@@ -295,10 +287,10 @@ if filename is not None:
                 os.system("curl -s {} -o {}".format(url, filename))
                 img2 = Image.open(filename)
                 img2 = img2.convert('RGB')
-                img2 = img2.resize((224, 224))
+                img2 = img2.resize((112, 112))
                 # show image
                 plt.figure(figsize=(4, 4))
-                st.image(img2, use_column_width=True)
+                st.image(img2)
                 plt.axis('off')
                 break
         
