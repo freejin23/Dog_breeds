@@ -231,7 +231,7 @@ def upload_and_predict2(filename):
     print(img.size)
     # show image
     plt.figure(figsize=(4, 4))
-    st.imshow(img)
+    plt.imshow(img)
     plt.axis('off')
     # predict
 #     img = imread(filename)
@@ -277,7 +277,7 @@ if filename is not None:
 
     probs = pretrained_model.predict(np.expand_dims(img, axis=0))
     # text = []
-    st.image(img, use_column_width=True)
+    st.image(img, use_column_width=False)
     
     for idx in probs.argsort()[0][::-1][:3]:
         st.text("{:.2f}%".format(probs[0][idx]*100) +" "+ label_maps_rev[idx].split("-")[-1])
