@@ -280,7 +280,7 @@ if filename is not None:
         st.text("{:.2f}%".format(probs[0][idx]*100) +" "+ label_maps_rev[idx].split("-")[-1])
 
         baseUrl = 'https://www.akc.org/?s='
-        plusUrl = label_maps_rev[idx].split("-")[-1]
+        plusUrl = label_maps_rev[idx].split("-")[-1].replace('_', ' ')
         print(label_maps_rev[idx].split("-")[-1])
         
         url = baseUrl + plusUrl
