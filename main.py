@@ -1,5 +1,10 @@
 import streamlit as st
 
+st.set_page_config(
+    page_title="Likelion AI School Dog Team Miniproject",
+    page_icon="🐶",
+    layout="wide",
+)
 
 st.markdown('# CV Mini Project')
 st.markdown(
