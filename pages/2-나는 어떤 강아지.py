@@ -237,6 +237,8 @@ def upload_and_predict2(filename):
 #     img = imread(filename)
 #     img = preprocess_input(img)
     probs = pretrained_model.predict(np.expand_dims(img, axis=0))
+    i = 0
+    col=[]
     for idx in probs.argsort()[0][::-1][:8]:
         print("{:.2f}%".format(probs[0][idx]*100), "\t", label_maps_rev[idx].split("-")[-1])
         
@@ -262,9 +264,19 @@ def upload_and_predict2(filename):
                 img2 = img2.resize((224, 224))
                 # show image
                 plt.figure(figsize=(4, 4))
-                plt.imshow(img2)
+                col[i] = img2
                 plt.axis('off')
+                i += 1
                 break
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.image(col[0])
+    with col2:
+        st.image(col[1])
+    with col3:
+        st.image(col[2])
 
 if filename is not None:
     img = Image.open(filename)
