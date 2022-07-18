@@ -290,7 +290,8 @@ if filename is not None:
     probs = pretrained_model.predict(np.expand_dims(img, axis=0))
     # text = []
     st.image(img, use_column_width=False)
-    
+    i = 0
+    col=[]   
     for idx in probs.argsort()[0][::-1][:3]:
         st.text("{:.2f}%".format(probs[0][idx]*100) +" "+ label_maps_rev[idx].split("-")[-1])
 
@@ -316,8 +317,16 @@ if filename is not None:
                 img2 = img2.resize((224, 224))
                 # show image
                 plt.figure(figsize=(4, 4))
-                st.image(img2)
+                col[i] = img2
                 plt.axis('off')
+                i += 1
                 break
         
+    col1, col2, col3 = st.beta_columns([1,6,1])
 
+    with col1:
+        st.image(col[0])
+    with col2:
+        st.image(col[1])
+    with col3:
+        st.image(col[2])
